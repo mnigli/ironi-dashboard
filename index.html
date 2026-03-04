@@ -1,0 +1,129 @@
+﻿<!doctype html>
+<html lang="he" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>עירוני | דשבורד ערים בישראל</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;700;800&family=Secular+One&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="background-mesh"></div>
+    <div class="background-grid"></div>
+
+    <main class="layout">
+      <header class="hero card">
+        <div class="hero-copy">
+          <p class="brand">עירוני</p>
+          <h1>הדשבורד האורבני של ישראל</h1>
+          <p class="subtitle">
+            תצוגת נתוני למ״ס בזמן אמת על כל עיר בישראל, עם גרפים היסטוריים,
+            דירוגים והשוואות מתקדמות.
+          </p>
+          <div class="hero-tags">
+            <span>נתונים ממשלתיים</span>
+            <span>תצוגת זמן</span>
+            <span>השוואת ערים</span>
+          </div>
+        </div>
+
+        <aside class="hero-panel">
+          <p class="panel-label">State Of Cities</p>
+          <p class="panel-value">LIVE</p>
+          <p class="panel-note">הממשק מתעדכן לפי נתוני למ״ס מה־API.</p>
+        </aside>
+      </header>
+
+      <section class="controls card">
+        <div class="controls-grid">
+          <div class="field">
+            <label for="city-search">חפש עיר</label>
+            <input
+              id="city-search"
+              type="text"
+              placeholder="לדוגמה: ירושלים"
+              autocomplete="off"
+            />
+          </div>
+
+          <div class="field">
+            <label for="city-select">בחר עיר ראשית</label>
+            <select id="city-select"></select>
+          </div>
+
+          <div class="field field-wide">
+            <label for="compare-city-select">השווה לעיר נוספת (אופציונלי)</label>
+            <select id="compare-city-select">
+              <option value="">ללא השוואה</option>
+            </select>
+          </div>
+        </div>
+
+        <p class="meta">
+          שנת נתונים פעילה: <span id="data-year">-</span>
+          <span class="dot">•</span>
+          מקור: <span id="data-source">-</span>
+        </p>
+      </section>
+
+      <section class="kpi-grid" id="kpi-grid"></section>
+
+      <section class="card details">
+        <h2>פרופיל עיר</h2>
+        <p id="city-description"></p>
+      </section>
+
+      <section class="card chart-area">
+        <h2>השוואת אוכלוסייה בין ערים מובילות</h2>
+        <div id="population-chart" class="bar-chart"></div>
+      </section>
+
+      <section class="card chart-area">
+        <h2>אוכלוסייה לאורך זמן (2018-2023)</h2>
+        <div id="history-population-chart" class="history-bars"></div>
+      </section>
+
+      <section class="card chart-area">
+        <h2>שינוי שנתי באוכלוסייה</h2>
+        <div id="history-delta-chart" class="history-line-wrap">
+          <svg
+            id="history-delta-svg"
+            class="history-line-svg"
+            viewBox="0 0 640 210"
+            preserveAspectRatio="none"
+          ></svg>
+          <div id="history-delta-labels" class="history-line-labels"></div>
+        </div>
+      </section>
+
+      <section class="card chart-area">
+        <h2>דירוג אוכלוסייה ארצי לאורך זמן</h2>
+        <div class="history-line-wrap">
+          <div id="history-rank-legend" class="history-rank-legend"></div>
+          <svg
+            id="history-rank-svg"
+            class="history-line-svg"
+            viewBox="0 0 640 210"
+            preserveAspectRatio="none"
+          ></svg>
+          <div id="history-rank-labels" class="history-line-labels"></div>
+        </div>
+      </section>
+    </main>
+
+    <template id="kpi-template">
+      <article class="kpi card">
+        <p class="kpi-label"></p>
+        <p class="kpi-value"></p>
+        <p class="kpi-note"></p>
+      </article>
+    </template>
+
+    <script src="./app.js" type="module"></script>
+  </body>
+</html>

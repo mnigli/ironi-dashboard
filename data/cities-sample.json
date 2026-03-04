@@ -1,0 +1,62 @@
+﻿{
+  "meta": {
+    "source": "הלמ\"ס (דוגמה למבנה נתונים)",
+    "year": 2024
+  },
+  "cities": [
+    {
+      "name": "ירושלים",
+      "population": 981711,
+      "socioEconomicCluster": 3,
+      "averageSalaryNis": 8430,
+      "unemploymentRate": 4.8,
+      "annualGrowthPercent": 1.9,
+      "description": "עיר הבירה והעיר הגדולה בישראל, עם מגוון אוכלוסיות, מרכזי ממשל, חינוך ותיירות."
+    },
+    {
+      "name": "תל אביב-יפו",
+      "population": 474530,
+      "socioEconomicCluster": 8,
+      "averageSalaryNis": 15120,
+      "unemploymentRate": 3.1,
+      "annualGrowthPercent": 1.6,
+      "description": "מרכז מטרופוליני מוביל בתחומי תעסוקה, חדשנות, תרבות ופנאי."
+    },
+    {
+      "name": "חיפה",
+      "population": 291163,
+      "socioEconomicCluster": 7,
+      "averageSalaryNis": 12200,
+      "unemploymentRate": 3.9,
+      "annualGrowthPercent": 0.8,
+      "description": "עיר נמל גדולה בצפון עם בסיס תעשייתי, אקדמי ורפואי משמעותי."
+    },
+    {
+      "name": "ראשון לציון",
+      "population": 273190,
+      "socioEconomicCluster": 7,
+      "averageSalaryNis": 13240,
+      "unemploymentRate": 3.5,
+      "annualGrowthPercent": 1.3,
+      "description": "עיר מרכזית בגוש דן עם אזורי תעסוקה, מסחר ושכונות מגורים נרחבות."
+    },
+    {
+      "name": "באר שבע",
+      "population": 219473,
+      "socioEconomicCluster": 5,
+      "averageSalaryNis": 10480,
+      "unemploymentRate": 4.4,
+      "annualGrowthPercent": 1.7,
+      "description": "בירת הנגב ומוקד צמיחה בתחומי חינוך, טכנולוגיה ובריאות בדרום."
+    },
+    {
+      "name": "אשדוד",
+      "population": 233168,
+      "socioEconomicCluster": 5,
+      "averageSalaryNis": 10790,
+      "unemploymentRate": 4.1,
+      "annualGrowthPercent": 1.4,
+      "description": "עיר נמל מרכזית עם פעילות תעשייתית וכלכלית משמעותית לאורך החוף."
+    }
+  ]
+}
