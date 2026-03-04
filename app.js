@@ -458,7 +458,18 @@ function renderPopulationRankHistory(city) {
   const height = 210;
 
   const primaryValuesForChart = ranks.map((r) => -r.rank);
-  const primaryPoints = mapSeriesToChartPoints(primaryValuesForChart, width, height);
+  const compareValuesForChart = compareRanks.map((r) => -r.rank);
+  const allValuesForChart = [...primaryValuesForChart, ...compareValuesForChart];
+  const sharedMin = Math.min(...allValuesForChart);
+  const sharedMax = Math.max(...allValuesForChart);
+
+  const primaryPoints = mapSeriesToChartPoints(
+    primaryValuesForChart,
+    width,
+    height,
+    sharedMin,
+    sharedMax
+  );
   let svgContent = buildLineSvg(primaryPoints, {
     width,
     height,
@@ -476,8 +487,13 @@ function renderPopulationRankHistory(city) {
   `;
 
   if (compareRanks.length > 0) {
-    const compareValuesForChart = compareRanks.map((r) => -r.rank);
-    const comparePoints = mapSeriesToChartPoints(compareValuesForChart, width, height);
+    const comparePoints = mapSeriesToChartPoints(
+      compareValuesForChart,
+      width,
+      height,
+      sharedMin,
+      sharedMax
+    );
     const compareSvg = buildLineOnly(comparePoints, {
       pathClass: "history-rank-compare-path",
       pointClass: "history-rank-compare-point",
@@ -505,11 +521,11 @@ function getCompareCity(primaryCityName) {
   return allCities.find((city) => city.name === compareName) || null;
 }
 
-function mapSeriesToChartPoints(values, width, height) {
+function mapSeriesToChartPoints(values, width, height, forcedMin = null, forcedMax = null) {
   const paddingX = 40;
   const paddingY = 24;
-  const min = Math.min(...values);
-  const max = Math.max(...values);
+  const min = Number.isFinite(forcedMin) ? forcedMin : Math.min(...values);
+  const max = Number.isFinite(forcedMax) ? forcedMax : Math.max(...values);
   const span = max - min || 1;
   const xStep = values.length > 1 ? (width - paddingX * 2) / (values.length - 1) : 0;
 
