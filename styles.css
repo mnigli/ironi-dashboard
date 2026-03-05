@@ -444,3 +444,25 @@ h2 {
     text-align: right;
   }
 }
+.explainer {
+  padding: 1rem;
+}
+
+.explainer-copy {
+  margin: 0 0 0.7rem;
+  color: var(--muted);
+}
+
+.video-shell {
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  overflow: hidden;
+  background: #0e2344;
+}
+
+.video-shell video {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 540px;
+}
