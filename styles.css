@@ -485,17 +485,6 @@ h2 {
   pointer-events: auto;
 }
 
-.slide-step {
-  margin: 0;
-  display: inline-block;
-  width: fit-content;
-  padding: 0.2rem 0.5rem;
-  border-radius: 999px;
-  font-size: 0.78rem;
-  background: rgba(216, 179, 75, 0.2);
-  color: var(--gold-soft);
-}
-
 .slide h3 {
   margin: 0;
   color: #fff;
