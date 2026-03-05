@@ -39,6 +39,17 @@ const currencyFormatter = new Intl.NumberFormat("he-IL", {
 });
 
 let allCities = [];
+const slideTrack = document.querySelector("#slides-track");
+const slidePrevBtn = document.querySelector("#slide-prev");
+const slideNextBtn = document.querySelector("#slide-next");
+const slideDotsContainer = document.querySelector("#slide-dots");
+
+let slideState = {
+  index: 0,
+  timer: null,
+  slides: [],
+  dots: [],
+};
 
 bootstrap().catch((error) => {
   console.error(error);
@@ -76,6 +87,8 @@ async function bootstrap() {
   });
 
   citySearch.addEventListener("input", handleSearch);
+
+  initExplainerSlides();
 }
 
 async function loadFromLamas() {
@@ -602,4 +615,72 @@ function escapeHtml(value) {
     .replaceAll(">", "&gt;")
     .replaceAll('"', "&quot;")
     .replaceAll("'", "&#39;");
+}
+function initExplainerSlides() {
+  if (!slideTrack || !slidePrevBtn || !slideNextBtn || !slideDotsContainer) return;
+
+  const slides = Array.from(slideTrack.querySelectorAll(".slide"));
+  if (slides.length === 0) return;
+
+  slideState.slides = slides;
+  slideState.index = 0;
+
+  slideDotsContainer.innerHTML = slides
+    .map(
+      (_, idx) =>
+        `<button type="button" class="slide-dot${idx === 0 ? " is-active" : ""}" data-slide-index="${idx}" aria-label="מעבר לשקף ${idx + 1}"></button>`
+    )
+    .join("");
+
+  slideState.dots = Array.from(slideDotsContainer.querySelectorAll(".slide-dot"));
+
+  slidePrevBtn.addEventListener("click", () => {
+    showSlide(slideState.index - 1);
+    restartSlideTimer();
+  });
+
+  slideNextBtn.addEventListener("click", () => {
+    showSlide(slideState.index + 1);
+    restartSlideTimer();
+  });
+
+  slideDotsContainer.addEventListener("click", (event) => {
+    const target = event.target.closest(".slide-dot");
+    if (!target) return;
+
+    const nextIndex = Number(target.dataset.slideIndex);
+    if (!Number.isFinite(nextIndex)) return;
+
+    showSlide(nextIndex);
+    restartSlideTimer();
+  });
+
+  showSlide(0);
+  restartSlideTimer();
+}
+
+function showSlide(nextIndex) {
+  const { slides, dots } = slideState;
+  if (!slides.length) return;
+
+  const normalized = ((nextIndex % slides.length) + slides.length) % slides.length;
+  slideState.index = normalized;
+
+  slides.forEach((slide, idx) => {
+    slide.classList.toggle("is-active", idx === normalized);
+  });
+
+  dots.forEach((dot, idx) => {
+    dot.classList.toggle("is-active", idx === normalized);
+  });
+}
+
+function restartSlideTimer() {
+  if (slideState.timer) {
+    clearInterval(slideState.timer);
+  }
+
+  slideState.timer = setInterval(() => {
+    showSlide(slideState.index + 1);
+  }, 4500);
 }

@@ -69,12 +69,37 @@
 
       <section id="explainer" class="panel explainer">
         <h2>סרטון הסבר על עירוני</h2>
-        <p class="explainer-copy">הסרטון מסביר בקצרה איך לבחור עיר, להשוות נתונים ולקרוא את הגרפים ההיסטוריים.</p>
-        <div class="video-shell">
-          <video controls preload="metadata" playsinline>
-            <source src="./X2Twitter.com_KhU6KjJtUdAnfXPS_1920p.mp4" type="video/mp4" />
-            הדפדפן שלך לא תומך בניגון וידאו.
-          </video>
+        <p class="explainer-copy">מצגת קצרה שמדגימה איך עובדים עם הדשבורד: בחירת עיר, השוואה וקריאת מגמות.</p>
+
+        <div class="slides-video" aria-label="סרטון שקפים">
+          <div class="slides-track" id="slides-track">
+            <article class="slide is-active">
+              <p class="slide-step">שקף 1</p>
+              <h3>בחרו עיר ראשית</h3>
+              <p>חפשו עיר או בחרו מהרשימה כדי לטעון תמונת מצב מיידית.</p>
+            </article>
+            <article class="slide">
+              <p class="slide-step">שקף 2</p>
+              <h3>השוו לעיר נוספת</h3>
+              <p>הוסיפו עיר להשוואה כדי לראות פערים בדירוג האוכלוסייה לאורך זמן.</p>
+            </article>
+            <article class="slide">
+              <p class="slide-step">שקף 3</p>
+              <h3>קראו את ה-KPI</h3>
+              <p>עקבו אחרי אוכלוסייה, שכר, תעסוקה ושינוי שנתי בכרטיסים המרכזיים.</p>
+            </article>
+            <article class="slide">
+              <p class="slide-step">שקף 4</p>
+              <h3>זהו מגמות היסטוריות</h3>
+              <p>גרפי הזמן מראים האם העיר מתחזקת, נחלשת או נשארת יציבה.</p>
+            </article>
+          </div>
+
+          <div class="slides-controls">
+            <button type="button" id="slide-prev" class="slide-btn" aria-label="שקף קודם">קודם</button>
+            <div class="slide-dots" id="slide-dots" aria-label="בחירת שקף"></div>
+            <button type="button" id="slide-next" class="slide-btn" aria-label="שקף הבא">הבא</button>
+          </div>
         </div>
       </section>
 
