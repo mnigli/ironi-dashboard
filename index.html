@@ -3,29 +3,43 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>עירוני | מבט נקי על ערי ישראל</title>
+    <title>עירוני | חקירת נתוני ערים</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;600;700;800&family=Manrope:wght@400;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;700;800&family=Secular+One&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="./styles.css" />
   </head>
   <body>
-    <div class="ambient ambient-left"></div>
-    <div class="ambient ambient-right"></div>
+    <header class="top-strip">
+      <div class="top-inner">
+        <p class="brand">עירוני <span>⚖️</span></p>
+        <nav class="main-nav" aria-label="ניווט ראשי">
+          <a href="#controls">חיפוש עיר</a>
+          <a href="#kpi-grid">תובנות</a>
+          <a href="#history">היסטוריה</a>
+        </nav>
+      </div>
+    </header>
+
+    <section class="hero-wrap">
+      <div class="hero-inner">
+        <p class="hero-kicker">דשבורד נתונים</p>
+        <h1><span>עירוני</span> מציג תמונה ברורה של הערים בישראל</h1>
+        <p class="subtitle">
+          נתוני למ"ס עדכניים, גרפים היסטוריים והשוואות בין ערים במקום אחד.
+        </p>
+        <div class="hero-cta">
+          <a class="btn btn-solid" href="#controls">התחל חקירה</a>
+          <a class="btn btn-ghost" href="#history">גרפים היסטוריים</a>
+        </div>
+      </div>
+    </section>
 
     <main class="layout">
-      <header class="hero">
-        <p class="brand">עירוני</p>
-        <h1>נתונים, בלי רעש</h1>
-        <p class="subtitle">
-          תצוגה מדויקת של נתוני למ"ס לכל עיר בישראל, עם היסטוריה והשוואה חכמה.
-        </p>
-      </header>
-
-      <section class="controls panel">
+      <section id="controls" class="controls panel">
         <div class="field-row">
           <div class="field">
             <label for="city-search">חיפוש עיר</label>
@@ -52,7 +66,7 @@
         </p>
       </section>
 
-      <section class="kpi-grid" id="kpi-grid"></section>
+      <section id="kpi-grid" class="kpi-grid"></section>
 
       <section class="panel details">
         <h2>פרופיל עיר</h2>
@@ -64,7 +78,7 @@
         <div id="population-chart" class="bar-chart"></div>
       </section>
 
-      <section class="panel chart-area">
+      <section id="history" class="panel chart-area">
         <h2>אוכלוסייה לאורך זמן (2018-2023)</h2>
         <div id="history-population-chart" class="history-bars"></div>
       </section>
